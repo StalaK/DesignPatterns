@@ -42,4 +42,14 @@ internal class GumballMachine
         Console.WriteLine("A gumball comes rolling out the slot...");
         Count--;
     }
+
+    public void Refill(int gumballs)
+    {
+        if (_state != SoldOutState || _state != NoQuarterState)
+            Console.WriteLine("Unable to refill if a gumball purchase is in progress");
+
+        Count += gumballs;
+
+        _state = NoQuarterState;
+    }
 }
